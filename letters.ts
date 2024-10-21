@@ -4,16 +4,18 @@ export const getLetterOccurrences = (text: string) => {
   const occurrences = new Map<string, number>();
 
   for (const letter of text) {
-    if (!isAlphaNumeric(letter)) {
+    const lowerCaseLetter = letter.toLowerCase();
+
+    if (!isAlphaNumeric(lowerCaseLetter)) {
       continue;
     }
 
-    const count = occurrences.get(letter);
+    const count = occurrences.get(lowerCaseLetter);
 
     if (!count) {
-      occurrences.set(letter, 1);
+      occurrences.set(lowerCaseLetter, 1);
     } else {
-      occurrences.set(letter, count + 1);
+      occurrences.set(lowerCaseLetter, count + 1);
     }
   }
 
